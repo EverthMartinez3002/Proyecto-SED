@@ -15,4 +15,15 @@ class Admin extends Model
         'email',
         'contraseña',
     ];
+
+    public function guardarAdmin($nombre, $apellido, $email, $contrasena){
+        $this->insert([
+            'nombre' => $nombre,
+            'apellido' => $apellido,
+            'email' => $email,
+            'contraseña' => password_hash($contrasena, PASSWORD_DEFAULT),
+        ]);
+
+        return $this->insertID();
+    }
 }

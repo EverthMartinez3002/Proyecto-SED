@@ -2,10 +2,11 @@
 
 namespace App\Controllers;
 
-use App\Models\Usuario;
+use App\Models\SuperAdmin;
 
-class UsuarioController extends BaseController
+class SuperAdminController extends BaseController
 {
+
     public function guardar()
     {
         $datos = $this->request->getJSON();
@@ -15,11 +16,11 @@ class UsuarioController extends BaseController
         $email = $datos->email;
         $contrasena = $datos->contrasena;
 
-        $usuarioModel = new Usuario();
+        $superadminmodel = new SuperAdmin();
 
-        $nuevoUsuarioID = $usuarioModel->guardarUsuario($nombre, $apellido, $email, $contrasena);
+        $nuevosuperadmin = $superadminmodel->guardarSuperAdmin($nombre, $apellido, $email, $contrasena);
 
-        if ($nuevoUsuarioID) {
+        if ($nuevosuperadmin) {
             $mensaje = 'Usuario registrado correctamente';
         } else {
             $mensaje = 'No se pudo registrar el usuario';

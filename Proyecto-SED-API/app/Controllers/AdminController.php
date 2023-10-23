@@ -2,9 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Models\Usuario;
+use App\Models\Admin;
 
-class UsuarioController extends BaseController
+class AdminController extends BaseController
 {
     public function guardar()
     {
@@ -15,11 +15,11 @@ class UsuarioController extends BaseController
         $email = $datos->email;
         $contrasena = $datos->contrasena;
 
-        $usuarioModel = new Usuario();
+        $adminmodel = new Admin();
 
-        $nuevoUsuarioID = $usuarioModel->guardarUsuario($nombre, $apellido, $email, $contrasena);
+        $nuevoadmin = $adminmodel->guardarAdmin($nombre,$apellido,$email,$contrasena);
 
-        if ($nuevoUsuarioID) {
+        if($nuevoadmin){
             $mensaje = 'Usuario registrado correctamente';
         } else {
             $mensaje = 'No se pudo registrar el usuario';
