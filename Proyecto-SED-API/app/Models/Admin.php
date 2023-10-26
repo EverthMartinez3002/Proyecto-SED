@@ -6,22 +6,16 @@ use CodeIgniter\Model;
 
 class Admin extends Model
 {
-    protected $table = "admin";
+    protected $table = "administradores";
 
     protected $allowedFields = [
         'id',
-        'nombre',
-        'apellido',
-        'email',
-        'contraseña',
+        'usuario_id',
     ];
 
-    public function guardarAdmin($nombre, $apellido, $email, $contrasena){
+    public function guardarAdmin($usuario_id){
         $this->insert([
-            'nombre' => $nombre,
-            'apellido' => $apellido,
-            'email' => $email,
-            'contraseña' => password_hash($contrasena, PASSWORD_DEFAULT),
+            'usuario_id' => $usuario_id,
         ]);
 
         return $this->insertID();
