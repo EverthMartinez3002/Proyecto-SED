@@ -45,8 +45,10 @@ class UsuarioController extends BaseController
         if ($datos->rol === 'superadmin') {
             $superadminModel = new SuperAdmin();
             $superadminModel->guardarSuperAdmin($nuevoUsuarioID);
-        }
-
-        return $this->response->setJSON(['mensaje' => $mensaje]);
+        }   
+        
+        return $this->response
+            ->setHeader('Access-Control-Allow-Origin', '*')
+            ->setStatusCode(200);
     }
 }
