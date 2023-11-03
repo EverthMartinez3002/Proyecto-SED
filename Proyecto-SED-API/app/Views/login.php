@@ -67,11 +67,11 @@
 <body>
     <div class="container">
         <h1>Iniciar sesión</h1>
-        <form>
+        <form action="<?php echo base_url('user/login'); ?>" method="post">
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required>
             <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" required>
+            <input type="password" id="contrasena" name="contrasena" required>
             <button class="btn" type="submit">Iniciar Sesión</button>
         </form>
     </div>

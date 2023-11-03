@@ -1,0 +1,15 @@
+CRITICAL - 2023-11-03 21:47:47 --> Call to a member function getfirst() on array
+in APPPATH\Controllers\UsuarioController.php on line 62.
+ 1 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\UsuarioController->login()
+ 2 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsuarioController))
+ 3 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\sis\\Desktop\\proyectos\\Developer\\Proyecto-SED-API\\Proyecto-SED-API\\Proyecto-SED-API\\public\\index.php')
+CRITICAL - 2023-11-03 21:49:26 --> Attempt to read property "contrasena" on array
+in APPPATH\Controllers\UsuarioController.php on line 65.
+ 1 APPPATH\Controllers\UsuarioController.php(65): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Attempt to read property "contrasena" on array', 'C:\\Users\\sis\\Desktop\\proyectos\\Developer\\Proyecto-SED-API\\Proyecto-SED-API\\Proyecto-SED-API\\app\\Controllers\\UsuarioController.php', 65)
+ 2 SYSTEMPATH\CodeIgniter.php(942): App\Controllers\UsuarioController->login()
+ 3 SYSTEMPATH\CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\UsuarioController))
+ 4 SYSTEMPATH\CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(79): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH\Commands\Server\rewrite.php(47): require_once('C:\\Users\\sis\\Desktop\\proyectos\\Developer\\Proyecto-SED-API\\Proyecto-SED-API\\Proyecto-SED-API\\public\\index.php')

@@ -13,6 +13,7 @@ $routes->get('/login', 'Home::login');
 
 $routes->group('user', function ($routes) {
     $routes->post('create', 'UsuarioController::guardar');
+    $routes->post('login', 'UsuarioController::login');
 });
 
 $routes->group('admin', function ($routes) {

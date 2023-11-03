@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Usuario;
 use App\Models\Admin;
 use App\Models\SuperAdmin;
+use Firebase\JWT\JWT;
 
 class UsuarioController extends BaseController
 {
@@ -52,4 +53,36 @@ class UsuarioController extends BaseController
             }
         }
     }
+
+   public function login(){
+        $email = $this->request->getVar('email');
+        $contrasena = $this->request->getVar('contrasena');
+        $usuarioModel = new Usuario();
+
+        $usuario = $usuarioModel->customWhere('email', $email);
+        
+        if($usuario) {
+            if (password_verify($contrasena, $usuario->contrasena)) {
+
+                $key = config('JWT.key');
+                $algorithm = config('JWT.algorithm');
+    
+                $payload = [
+                    'sub' => $usuario->id,
+                    'email' => $usuario->email,
+                    'rol' => $usuario->rol,
+                    'iat' => time(),
+                    'exp' => time() + (60 * 60), 
+                ];
+
+                $jwt = \Firebase\JWT\JWT::encode($payload, $key, $algorithm);
+
+                return $this->response->setJSON(['token'=> $jwt])->setStatusCode(200);
+        } else {
+            return $this->response->setJSON(['mensaje' => 'la contraseña es incorrecta'])->setStatusCode(401);
+        }
+    } else {
+        return $this->response->setJSON(['mensaje' => 'el usuario no existe'])->setStatusCode(401);
+    }
+ }
 }
