@@ -18,4 +18,9 @@ class Home extends BaseController
     {
         return view('login');
     }
+
+    public function user(): string
+    {
+        return view('usermarcacion');
+    }
 }

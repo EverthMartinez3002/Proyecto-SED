@@ -6,6 +6,7 @@ use App\Models\Usuario;
 use App\Models\Admin;
 use App\Models\SuperAdmin;
 use Firebase\JWT\JWT;
+use Config\Session;
 
 class UsuarioController extends BaseController
 {
@@ -25,7 +26,7 @@ class UsuarioController extends BaseController
         // Verifica si el correo electrónico ya está registrado
         $usuarioExistente = $usuarioModel->where('email', $email)->first();
 
-        
+
 
         if ($usuarioExistente) {
             $mensaje = 'El correo electrónico ya está registrado';
@@ -40,7 +41,7 @@ class UsuarioController extends BaseController
                     $administradorModel = new Admin();
                     $administradorModel->guardarAdmin($nuevoUsuarioID);
                 }
-        
+
                 if ($rol === 'superadmin') {
                     $superadminModel = new SuperAdmin();
                     $superadminModel->guardarSuperAdmin($nuevoUsuarioID);
@@ -54,35 +55,32 @@ class UsuarioController extends BaseController
         }
     }
 
-   public function login(){
+    public function login()
+    {
         $email = $this->request->getVar('email');
         $contrasena = $this->request->getVar('contrasena');
         $usuarioModel = new Usuario();
 
         $usuario = $usuarioModel->customWhere('email', $email);
-        
-        if($usuario) {
-            if (password_verify($contrasena, $usuario->contrasena)) {
 
-                $key = config('JWT.key');
-                $algorithm = config('JWT.algorithm');
-    
+        if ($usuario) {
+            if (password_verify($contrasena, $usuario['contraseña'])) {
+
                 $payload = [
-                    'sub' => $usuario->id,
-                    'email' => $usuario->email,
-                    'rol' => $usuario->rol,
+                    'sub' => $usuario['usuario_id'],
+                    'email' => $usuario['email'],
                     'iat' => time(),
-                    'exp' => time() + (60 * 60), 
+                    'exp' => time() + (60 * 60),
                 ];
 
-                $jwt = \Firebase\JWT\JWT::encode($payload, $key, $algorithm);
+                $jwt = JWT::encode($payload, 'your_secret_key', 'HS256');
 
-                return $this->response->setJSON(['token'=> $jwt])->setStatusCode(200);
+                return $this->response->setJSON(['token' => $jwt])->setStatusCode(200);
+            } else {
+                return $this->response->setJSON(['mensaje' => 'la contraseña es incorrecta'])->setStatusCode(401);
+            }
         } else {
-            return $this->response->setJSON(['mensaje' => 'la contraseña es incorrecta'])->setStatusCode(401);
+            return $this->response->setJSON(['mensaje' => 'el usuario no existe'])->setStatusCode(401);
         }
-    } else {
-        return $this->response->setJSON(['mensaje' => 'el usuario no existe'])->setStatusCode(401);
     }
- }
 }

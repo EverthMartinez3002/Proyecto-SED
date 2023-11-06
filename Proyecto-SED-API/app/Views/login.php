@@ -67,7 +67,7 @@
 <body>
     <div class="container">
         <h1>Iniciar sesión</h1>
-        <form action="<?php echo base_url('user/login'); ?>" method="post">
+        <form id="login-form" action="<?php echo base_url('user/login'); ?>" method="post">
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required>
             <label for="password">Contraseña:</label>
@@ -77,3 +77,26 @@
     </div>
 </body>
 </html>
+
+<script>
+    document.getElementById('login-form').addEventListener('submit', function (e) {
+
+        fetch(this.action, {
+            method: 'POST',
+            body: new FormData(this),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    localStorage.setItem('jwtToken', data.token);
+
+                    window.location.href = '/user';
+                } else {
+                    console.error('Error: No se pudo obtener el token.');
+                }
+            })
+            .catch(error => {
+                console.error('Error de red:', error);
+            });
+    });
+</script>
