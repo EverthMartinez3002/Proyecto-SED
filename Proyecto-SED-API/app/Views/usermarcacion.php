@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,6 +63,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Marcación de Usuario</h1>
@@ -74,27 +76,30 @@
         </form>
     </div>
 </body>
+
 </html>
 
 <script>
-document.getElementById('marcacion-create').addEventListener('submit', function (event){
+    const jwtToken = localStorage.getItem('jwtToken');
 
-    const jwtToken = localStorage.getItem('jwtToken')
+    if (jwtToken === null || jwtToken === undefined) {
+        window.location.href = '/';
+    }
+    document.getElementById('marcacion-create').addEventListener('submit', function (event) {
 
-    const nombre = document.querySelector('#nombre').value;
-    const email = document.querySelector('#email').value;
+        const nombre = document.querySelector('#nombre').value;
+        const email = document.querySelector('#email').value;
 
-    fetch(this.action, {
-        method: 'POST',
-        headers: {
-            'Authorization': `${jwtToken}` 
-        },
-        body: JSON.stringify({ nombre, email }) 
+        fetch(this.action, {
+            method: 'POST',
+            headers: {
+                'Authorization': `${jwtToken}`
+            },
+            body: JSON.stringify({ nombre, email })
+        })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
     })
-    .then(response => response.json())
-    .then(data => {
-        console.log(data);
-    })
-
-})
 </script>
