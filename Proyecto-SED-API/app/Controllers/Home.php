@@ -23,4 +23,9 @@ class Home extends BaseController
     {
         return view('usermarcacion');
     }
+
+    public function userEdit(): string
+    {
+        return view('users-profile');
+    }
 }

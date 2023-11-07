@@ -13,9 +13,13 @@ $routes->get('/login', 'Home::login');
 
 $routes->get('/user', 'Home::user');
 
+$routes->get('/edit-profile', 'Home::userEdit');
+
 $routes->group('user', function ($routes) {
     $routes->post('create', 'UsuarioController::guardar');
     $routes->post('login', 'UsuarioController::login');
+    $routes->get('id', 'UsuarioController::getuserById');
+    $routes->post('edit', 'UsuarioController::editProfileUser');
 });
 
 $routes->group('admin', function ($routes) {

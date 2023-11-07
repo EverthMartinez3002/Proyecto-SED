@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Marcación de usuario</title>
     <style>
         body {
@@ -61,13 +62,32 @@
             cursor: pointer;
             font-size: 16px;
         }
+
+        .btn-logout {
+            background-color: #f34336;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .buttons-container {
+            text-align: center;
+        }
+
+        .buttons-container button {
+            margin: 10px;
+            /* Espacio entre los botones */
+        }
     </style>
 </head>
 
 <body>
     <div class="container">
         <h1>Marcación de Usuario</h1>
-        <form id="marcacion-create" action="<?php echo base_url('marcacion/create'); ?>" method="post">
+        <form id="marcacion-create">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required>
             <label for="email">Correo electrónico:</label>
@@ -75,10 +95,15 @@
             <button class="btn" type="submit">Enviar</button>
         </form>
     </div>
+    <div class="buttons-container">
+        <button class="btn-logout" id="logout-button">Logout</button>
+        <button class="btn" id="edit-profile-button">Editar Mi Perfil</button>
+    </div>
 </body>
 
 </html>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script>
     const jwtToken = localStorage.getItem('jwtToken');
 
@@ -86,20 +111,56 @@
         window.location.href = '/';
     }
     document.getElementById('marcacion-create').addEventListener('submit', function (event) {
+        event.preventDefault();
 
         const nombre = document.querySelector('#nombre').value;
         const email = document.querySelector('#email').value;
 
-        fetch(this.action, {
+        fetch('http://localhost:8080/marcacion/create', {
             method: 'POST',
             headers: {
-                'Authorization': `${jwtToken}`
+                'Authorization': jwtToken
             },
             body: JSON.stringify({ nombre, email })
-        })
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
+        }).then(response => {
+            response.json().then(data => {
+                if (response.status === 200 && data.mensaje === 'Marcación guardada') {
+                    Toastify({
+                        text: 'Marcación registrada con éxito',
+                        duration: 1500,
+                        close: true,
+                        gravity: 'top',
+                        position: 'center',
+                        style: {
+                            background: 'green'
+                        }
+                    }).showToast();
+
+                    document.querySelector('#nombre').value = '';
+                    document.querySelector('#email').value = '';
+                } else {
+                    Toastify({
+                        text: 'Credenciales incorrectas',
+                        duration: 1500,
+                        close: true,
+                        gravity: 'top',
+                        position: 'center',
+                        style: {
+                            background: 'red'
+                        }
+                    }).showToast();
+                }
             })
-    })
+        })
+    });
+
+    document.getElementById('logout-button').addEventListener('click', function () {
+        localStorage.removeItem('jwtToken')
+
+        window.location.href = '';
+    });
+
+    document.getElementById('edit-profile-button').addEventListener('click', function () {
+        window.location.href = 'edit-profile'
+    });
 </script>

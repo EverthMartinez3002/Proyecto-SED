@@ -99,7 +99,7 @@
             <label for="direccion">Dirección:</label>
             <input type="text" id="direccion" name="direccion" required>
             <label for="rol">Rol:</label>
-            <select id="rol" name="rol">
+            <select id="rol" name="rol" required>
                 <option value="user">Usuario</option>
                 <option value="admin">Admin</option>
                 <option value="superadmin">Superadmin</option>

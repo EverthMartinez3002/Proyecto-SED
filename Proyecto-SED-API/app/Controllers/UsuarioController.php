@@ -6,7 +6,7 @@ use App\Models\Usuario;
 use App\Models\Admin;
 use App\Models\SuperAdmin;
 use Firebase\JWT\JWT;
-use Config\Session;
+use Firebase\JWT\Key;
 
 class UsuarioController extends BaseController
 {
@@ -81,6 +81,102 @@ class UsuarioController extends BaseController
             }
         } else {
             return $this->response->setJSON(['mensaje' => 'el usuario no existe'])->setStatusCode(401);
+        }
+    }
+
+    public function getuserById()
+    {
+        $token = $this->request->getHeaderLine('Authorization');
+
+        if (empty($token)) {
+            return $this->response->setJSON(['mensaje' => 'Token no proporcionado'])->setStatusCode(401);
+        }
+
+        try {
+            $decodedToken = JWT::decode($token, new Key('your_secret_key', 'HS256'));
+            $user_id = $decodedToken->sub;
+
+            $usuarioModel = new Usuario();
+
+            $usuario = $usuarioModel->customWhere('usuario_id', $user_id);
+
+            if ($usuario) {
+                return $this->response->setJSON(['usuario' => $usuario])->setStatusCode(200);
+            } else {
+                return $this->response->setJSON(['mensaje' => 'Usuario no encontrado'])->setStatusCode(404);
+            }
+        } catch (\Exception $e) {
+            return $this->response->setJSON(['mensaje' => 'Token no válido'])->setStatusCode(401);
+        }
+    }
+
+    public function editProfileUser()
+    {
+        $token = $this->request->getHeaderLine('Authorization');
+
+        if (empty($token)) {
+            return $this->response->setJSON(['mensaje' => 'Token no proporcionado'])->setStatusCode(401);
+        }
+
+        try {
+            $decodedToken = JWT::decode($token, new Key('your_secret_key', 'HS256'));
+            $user_id = $decodedToken->sub;
+
+            $input = file_get_contents('php://input');
+            $data = json_decode($input, true);
+
+            $nombre = $data['nombre'];
+            $apellido = $data['apellido'];
+            $email = $data['email'];
+            $contrasena = $data['contrasena'];
+            $fecha_nacimiento = $data['fecha_nacimiento'];
+            $direccion = $data['direccion'];
+
+            $hashedpassword = password_hash($contrasena, PASSWORD_DEFAULT);
+
+            $usuarioModel = new Usuario();
+
+            $usuario = $usuarioModel->customWhere('usuario_id', $user_id);
+
+            $newdata = [];
+
+            if (!empty($data['nombre']) && $data['nombre'] !== $usuario['nombre']) {
+                $newdata['nombre'] = $data['nombre'];
+            }
+
+            if (!empty($data['apellido']) && $data['apellido'] !== $usuario['apellido']) {
+                $newdata['apellido'] = $data['apellido'];
+            }
+
+            if (!empty($data['email']) && $data['email'] !== $usuario['email']) {
+                $newdata['email'] = $data['email'];
+            }
+
+            if (!empty($data['contrasena']) && password_verify($data['contrasena'], $usuario['contraseña'])) {
+                $hashedpassword = password_hash($data['contrasena'], PASSWORD_DEFAULT);
+                $newdata['contraseña'] = $hashedpassword;
+            }
+
+            if (!empty($data['fecha_nacimiento']) && $data['fecha_nacimiento'] !== $usuario['fecha_nacimiento']) {
+                $newdata['fecha_nacimiento'] = $data['fecha_nacimiento'];
+            }
+
+            if (!empty($data['direccion']) && $data['direccion'] !== $usuario['direccion']) {
+                $newdata['direccion'] = $data['direccion'];
+            }
+
+            if (!empty($newdata)) {
+                $updated = $usuarioModel->updateUser($user_id, $newdata);
+            }
+
+            if ($updated) {
+                return $this->response->setJSON(['mensaje' => 'Perfil actualizado con éxito']);
+            } else {
+                return $this->response->setJSON(['mensaje' => 'Error al actualizar el perfil'])->setStatusCode(500);
+            }
+
+        } catch (\Exception $e) {
+            return $this->response->setJSON(['mensaje' => 'Token no válido'])->setStatusCode(401);
         }
     }
 }

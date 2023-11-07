@@ -37,4 +37,12 @@ class Usuario extends Model
         $model = new static();
         return $model->where($columna, $valor)->first();
     }
+
+    public static function updateUser($userId, $data)
+    {
+        $usuarioModel = new Usuario();
+        $builder = $usuarioModel->builder();
+        $builder->where('usuario_id', $userId);
+        return $builder->update($data);
+    }
 }
