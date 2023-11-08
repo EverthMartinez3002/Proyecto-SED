@@ -80,3 +80,7 @@
     </div>
 </body>
 </html>
+
+<script>
+ localStorage.removeItem('jwtToken');
+</script>

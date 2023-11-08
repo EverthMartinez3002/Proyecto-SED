@@ -2,10 +2,10 @@
 
 namespace App\Models;
 
-use Codeigniter\Model;
+use CodeIgniter\Model;
 
-class Marcacion extends Model{
-
+class Marcacion extends Model
+{
     protected $table = "registrosmarcacion";
 
     protected $allowedFields = [
@@ -26,5 +26,22 @@ class Marcacion extends Model{
         ]);
 
         return $this->insertID();
+    }
+
+    public static function getAllRegistros($perPage = 10, $page = 1)
+    {
+        $model = new static();
+
+        $offset = ($page - 1) * $perPage; 
+        
+        $registros = $model->findAll($perPage, $offset);
+
+        return $registros;
+    }
+
+    public static function Registros()
+    {
+        $model = new static();
+       return $model->findAll();
     }
 }

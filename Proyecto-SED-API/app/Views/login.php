@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <title>Iniciar Sesión - Sistema de Marcación de Asistencia</title>
     <style>
         body {
@@ -64,10 +66,11 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <h1>Iniciar sesión</h1>
-        <form id="login-form" action="<?php echo base_url('user/login'); ?>" method="post">
+        <form id="login-form">
             <label for="email">Correo Electrónico:</label>
             <input type="email" id="email" name="email" required>
             <label for="password">Contraseña:</label>
@@ -76,27 +79,46 @@
         </form>
     </div>
 </body>
+
 </html>
 
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
 <script>
     document.getElementById('login-form').addEventListener('submit', function (e) {
+        e.preventDefault();
 
-        fetch(this.action, {
+        const email = document.querySelector('#email').value;
+        const contrasena = document.querySelector('#contrasena').value;
+
+        fetch('http://localhost:8080/user/login', {
             method: 'POST',
-            body: new FormData(this),
-        })
-            .then(response => response.json())
-            .then(data => {
+            body: JSON.stringify({ email, contrasena })
+        }).then(response => {
+            response.json().then(data => {
                 if (data.token) {
+                    const tokenPayload = data.token.split('.')[1];
+                    const decodedPayload = JSON.parse(atob(tokenPayload));
                     localStorage.setItem('jwtToken', data.token);
 
-                    window.location.href = '/user';
+                    if (decodedPayload.rol === "admin") {
+                        window.location.href = '/admin';
+                    } else {
+                        window.location.href = '/user';
+                    }
+
                 } else {
-                    console.error('Error: No se pudo obtener el token.');
+                    Toastify({
+                        text: 'Credenciales incorrectas',
+                        duration: 1500,
+                        close: true,
+                        gravity: 'top',
+                        position: 'center',
+                        style: {
+                            background: 'red'
+                        }
+                    }).showToast();
                 }
             })
-            .catch(error => {
-                console.error('Error de red:', error);
-            });
+        })
     });
 </script>

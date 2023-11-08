@@ -26,8 +26,6 @@ class UsuarioController extends BaseController
         // Verifica si el correo electrónico ya está registrado
         $usuarioExistente = $usuarioModel->where('email', $email)->first();
 
-
-
         if ($usuarioExistente) {
             $mensaje = 'El correo electrónico ya está registrado';
 
@@ -57,11 +55,17 @@ class UsuarioController extends BaseController
 
     public function login()
     {
-        $email = $this->request->getVar('email');
-        $contrasena = $this->request->getVar('contrasena');
+        $input = file_get_contents('php://input');
+        $data = json_decode($input, true);
+
+        $email = $data['email'];
+        $contrasena = $data['contrasena'];
         $usuarioModel = new Usuario();
+        $adminModel = new Admin();
 
         $usuario = $usuarioModel->customWhere('email', $email);
+        $user_id = $usuario['usuario_id'];
+        $esadmin = $adminModel->customWhere('usuario_id', $user_id);
 
         if ($usuario) {
             if (password_verify($contrasena, $usuario['contraseña'])) {
@@ -69,9 +73,20 @@ class UsuarioController extends BaseController
                 $payload = [
                     'sub' => $usuario['usuario_id'],
                     'email' => $usuario['email'],
+                    'rol' => "user",
                     'iat' => time(),
                     'exp' => time() + (60 * 60),
                 ];
+
+                if ($esadmin) {
+                    $payload = [
+                        'sub' => $usuario['usuario_id'],
+                        'email' => $usuario['email'],
+                        'rol' => "admin",
+                        'iat' => time(),
+                        'exp' => time() + (60 * 60),
+                    ];
+                }
 
                 $jwt = JWT::encode($payload, 'your_secret_key', 'HS256');
 

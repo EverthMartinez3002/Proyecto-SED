@@ -28,4 +28,9 @@ class Home extends BaseController
     {
         return view('users-profile');
     }
+
+    public function adminregistros(): string
+    {
+        return view('admin-registros');
+    }
 }

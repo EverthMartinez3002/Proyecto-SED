@@ -20,4 +20,10 @@ class Admin extends Model
 
         return $this->insertID();
     }
+
+    public static function customWhere($columna, $valor)
+    {
+        $model = new static();
+        return $model->where($columna, $valor)->first();
+    }
 }
