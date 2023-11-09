@@ -22,6 +22,7 @@ class MarcacionController extends BaseController
         } catch (\Exception $e) {
             return $this->response->setJSON(['mensaje' => 'Token no válido'])->setStatusCode(401);
         }
+        $user_id = $decodedToken->sub;
 
         $input = file_get_contents('php://input');
         $data = json_decode($input, true);
@@ -31,9 +32,9 @@ class MarcacionController extends BaseController
 
         $usuarioModel = new Usuario();
         $marcacionModel = new Marcacion();
-        $usuario = $usuarioModel->customWhere('email', $email);
+        $usuario = $usuarioModel->customWhere('usuario_id', $user_id);
 
-        if (!$usuario || $usuario['nombre'] !== $nombre) {
+        if (!$usuario || $usuario['nombre'] !== $nombre || $usuario['email'] !== $email) {
             $mensaje = 'El usuario no existe o los datos no coinciden';
             return $this->response->setJSON(['mensaje' => $mensaje])->setStatusCode(400);
         }

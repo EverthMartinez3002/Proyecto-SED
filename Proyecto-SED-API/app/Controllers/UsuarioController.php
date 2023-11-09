@@ -12,18 +12,20 @@ class UsuarioController extends BaseController
 {
     public function guardar()
     {
-        // Obtén los datos del formulario de registro
-        $nombre = $this->request->getVar('nombre');
-        $apellido = $this->request->getVar('apellido');
-        $email = $this->request->getVar('email');
-        $contrasena = $this->request->getVar('contrasena');
-        $fecha_nacimiento = $this->request->getVar('fecha_nacimiento');
-        $direccion = $this->request->getVar('direccion');
-        $rol = $this->request->getVar('rol');
+
+        $input = file_get_contents('php://input');
+        $data = json_decode($input, true);
+
+        $nombre = $data['nombre'];
+        $apellido = $data['apellido'];
+        $email = $data['email'];
+        $contrasena = $data['contrasena'];
+        $fecha_nacimiento = $data['fecha_nacimiento'];
+        $direccion = $data['direccion'];
+        $rol = $data['rol'];
 
         $usuarioModel = new Usuario();
 
-        // Verifica si el correo electrónico ya está registrado
         $usuarioExistente = $usuarioModel->where('email', $email)->first();
 
         if ($usuarioExistente) {
@@ -31,7 +33,6 @@ class UsuarioController extends BaseController
 
             return $this->response->setJSON(['mensaje' => $mensaje])->setStatusCode(400);
         } else {
-            // Registra al nuevo usuario
             $nuevoUsuarioID = $usuarioModel->guardarUsuario($nombre, $apellido, $email, $contrasena, $fecha_nacimiento, $direccion);
 
             if ($nuevoUsuarioID) {
@@ -45,7 +46,7 @@ class UsuarioController extends BaseController
                     $superadminModel->guardarSuperAdmin($nuevoUsuarioID);
                 }
 
-                return redirect()->to('/');
+                return $this->response->setJSON(['mensaje' => 'El usuario ha sido registrado con exito'])->setStatusCode(200);
             } else {
                 $mensaje = 'No se pudo registrar el usuario';
                 return $this->response->setJSON(['mensaje' => $mensaje])->setStatusCode(400);
@@ -113,7 +114,7 @@ class UsuarioController extends BaseController
 
             $usuarioModel = new Usuario();
 
-            $usuario = $usuarioModel->customWhere('usuario_id', $user_id);
+            $usuario = $usuarioModel->customWhere('usuario_id', $user_id, ['nombre', 'apellido', 'fecha_nacimiento', 'direccion']);
 
             if ($usuario) {
                 return $this->response->setJSON(['usuario' => $usuario])->setStatusCode(200);
@@ -142,12 +143,8 @@ class UsuarioController extends BaseController
 
             $nombre = $data['nombre'];
             $apellido = $data['apellido'];
-            $email = $data['email'];
-            $contrasena = $data['contrasena'];
             $fecha_nacimiento = $data['fecha_nacimiento'];
             $direccion = $data['direccion'];
-
-            $hashedpassword = password_hash($contrasena, PASSWORD_DEFAULT);
 
             $usuarioModel = new Usuario();
 
@@ -161,15 +158,6 @@ class UsuarioController extends BaseController
 
             if (!empty($data['apellido']) && $data['apellido'] !== $usuario['apellido']) {
                 $newdata['apellido'] = $data['apellido'];
-            }
-
-            if (!empty($data['email']) && $data['email'] !== $usuario['email']) {
-                $newdata['email'] = $data['email'];
-            }
-
-            if (!empty($data['contrasena']) && password_verify($data['contrasena'], $usuario['contraseña'])) {
-                $hashedpassword = password_hash($data['contrasena'], PASSWORD_DEFAULT);
-                $newdata['contraseña'] = $hashedpassword;
             }
 
             if (!empty($data['fecha_nacimiento']) && $data['fecha_nacimiento'] !== $usuario['fecha_nacimiento']) {
@@ -191,7 +179,7 @@ class UsuarioController extends BaseController
             }
 
         } catch (\Exception $e) {
-            return $this->response->setJSON(['mensaje' => 'Token no válido'])->setStatusCode(401);
+            return $this->response->setJSON(['mensaje' => 'No se ha modificado ningun dato'])->setStatusCode(500);
         }
     }
 }

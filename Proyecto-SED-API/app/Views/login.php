@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('swal-css') ?>">
     <title>Iniciar Sesión - Sistema de Marcación de Asistencia</title>
     <style>
         body {
@@ -82,7 +82,7 @@
 
 </html>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="text/javascript" src="<?= base_url('swal-js') ?>"></script>
 <script>
     document.getElementById('login-form').addEventListener('submit', function (e) {
         e.preventDefault();
@@ -100,23 +100,30 @@
                     const decodedPayload = JSON.parse(atob(tokenPayload));
                     localStorage.setItem('jwtToken', data.token);
 
-                    if (decodedPayload.rol === "admin") {
-                        window.location.href = '/admin';
-                    } else {
-                        window.location.href = '/user';
-                    }
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Login exitoso",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        document.querySelector('#email').value = '';
+                        document.querySelector('#contrasena').value = '';
 
-                } else {
-                    Toastify({
-                        text: 'Credenciales incorrectas',
-                        duration: 1500,
-                        close: true,
-                        gravity: 'top',
-                        position: 'center',
-                        style: {
-                            background: 'red'
+                        if (decodedPayload.rol === "admin") {
+                            window.location.href = '/admin';
+                        } else {
+                            window.location.href = '/user';
                         }
-                    }).showToast();
+                    })
+                } else {
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Credenciales incorrectas",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
                 }
             })
         })

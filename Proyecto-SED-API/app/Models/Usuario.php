@@ -32,10 +32,15 @@ class Usuario extends Model
         return $this->insertID();
     }
 
-    public static function customWhere($columna, $valor)
+    public static function customWhere($columna, $valor, $camposSeleccionados = [])
     {
         $model = new static();
-        return $model->where($columna, $valor)->first();
+        
+        if (empty($camposSeleccionados)) {
+            return $model->where($columna, $valor)->first();
+        } else {
+            return $model->select($camposSeleccionados)->where($columna, $valor)->first();
+        }
     }
 
     public static function updateUser($userId, $data)

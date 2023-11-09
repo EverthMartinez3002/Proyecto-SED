@@ -33,4 +33,14 @@ class Home extends BaseController
     {
         return view('admin-registros');
     }
+
+    public function swalcss(): string
+    {
+        return view('swal.css');
+    }
+
+    public function swaljs(): string
+    {
+        return view('swal.js');
+    }
 }

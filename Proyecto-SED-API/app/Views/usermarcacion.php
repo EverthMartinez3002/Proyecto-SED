@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('swal-css') ?>">
     <title>Marcación de usuario</title>
     <style>
         body {
@@ -79,7 +79,6 @@
 
         .buttons-container button {
             margin: 10px;
-            /* Espacio entre los botones */
         }
     </style>
 </head>
@@ -103,12 +102,19 @@
 
 </html>
 
-<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+<script type="text/javascript" src="<?= base_url('swal-js') ?>"></script>
 <script>
     const jwtToken = localStorage.getItem('jwtToken');
 
     if (jwtToken === null || jwtToken === undefined) {
         window.location.href = '/';
+    }
+    if (jwtToken) {
+        const tokenPayload = jwtToken.split('.')[1];
+        const decodedPayload = JSON.parse(atob(tokenPayload));
+        if (decodedPayload.rol != 'user') {
+            window.location.href = '/';
+        }
     }
     document.getElementById('marcacion-create').addEventListener('submit', function (event) {
         event.preventDefault();
@@ -125,30 +131,26 @@
         }).then(response => {
             response.json().then(data => {
                 if (response.status === 200 && data.mensaje === 'Marcación guardada') {
-                    Toastify({
-                        text: 'Marcación registrada con éxito',
-                        duration: 1500,
-                        close: true,
-                        gravity: 'top',
-                        position: 'center',
-                        style: {
-                            background: 'green'
-                        }
-                    }).showToast();
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Marcacion registrada",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
 
                     document.querySelector('#nombre').value = '';
                     document.querySelector('#email').value = '';
                 } else {
-                    Toastify({
-                        text: 'Credenciales incorrectas',
-                        duration: 1500,
-                        close: true,
-                        gravity: 'top',
-                        position: 'center',
-                        style: {
-                            background: 'red'
-                        }
-                    }).showToast();
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "Credenciales incorrectas",
+                        showConfirmButton: false,
+                        timer: 1500
+                    });
+
                 }
             })
         })

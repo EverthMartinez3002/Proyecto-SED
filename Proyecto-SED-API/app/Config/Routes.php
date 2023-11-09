@@ -36,3 +36,7 @@ $routes->group('marcacion', function ($routes) {
     $routes->post('create', 'MarcacionController::guardar');
     $routes->get('/', 'MarcacionController::getAllRegistros');
 });
+
+$routes->get('/swal-css', 'Home::swalcss');
+
+$routes->get('/swal-js', 'Home::swaljs');

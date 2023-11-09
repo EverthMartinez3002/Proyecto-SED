@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('swal-css') ?>">
     <title>Registro - Sistema de Marcación de Asistencia</title>
     <style>
         body {
@@ -78,6 +79,11 @@
         .btn:hover {
             background-color: #0056b3;
         }
+
+        .btn-disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
     </style>
 </head>
 
@@ -85,7 +91,7 @@
     <div class="container">
         <h1>Registro sistema de marcación de asistencia</h1>
         <p>Por favor, complete el formulario de registro:</p>
-        <form action="<?php echo base_url('user/create'); ?>" method="post">
+        <form id="register-form">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
             <label for="apellido">Apellido:</label>
@@ -102,7 +108,6 @@
             <select id="rol" name="rol" required>
                 <option value="user">Usuario</option>
                 <option value="admin">Admin</option>
-                <option value="superadmin">Superadmin</option>
             </select>
             <button class="btn" type="submit">Registrarse</button>
         </form>
@@ -110,3 +115,77 @@
 </body>
 
 </html>
+
+<script type="text/javascript" src="<?= base_url('swal-js') ?>"></script>
+<script>
+    document.getElementById('fecha_nacimiento').addEventListener('change', function () {
+        const fechaNacimiento = new Date(this.value);
+        const hoy = new Date();
+        const edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+
+        const botonGuardar = document.querySelector('.btn');
+        if (edad < 18) {
+            botonGuardar.disabled = true;
+            botonGuardar.classList.add('btn-disabled');
+            alert('Debes ser mayor de 18 años para continuar.');
+        } else {
+            botonGuardar.disabled = false;
+            botonGuardar.classList.remove('btn-disabled');
+        }
+    });
+
+    document.getElementById('register-form').addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const nombre = document.getElementById('nombre').value;
+        const apellido = document.getElementById('apellido').value;
+        const email = document.getElementById('email').value;
+        const contrasena = document.getElementById('contrasena').value;
+        const fecha_nacimiento = document.getElementById('fecha_nacimiento').value;
+        const direccion = document.getElementById('direccion').value;
+        const rol = document.getElementById('rol').value;
+
+        const regex = /^(?=.*[A-Z])(?=.*[!@#$%^&*])(.{8,})$/;
+        if (!regex.test(contrasena)) {
+            alert('La contraseña debe tener al menos 8 caracteres, una mayúscula y un carácter especial.');
+            return;
+        }
+
+        fetch('http://localhost:8080/user/create', {
+            method: 'POST',
+            body: JSON.stringify({ nombre, apellido, email, contrasena, fecha_nacimiento, direccion, rol })
+        }).then(response => {
+            response.json().then(data => {
+                if (response.status === 200) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "success",
+                        title: "Registro exitoso",
+                        showConfirmButton: false,
+                        timer: 1500
+                    }).then(() => {
+                        document.getElementById('nombre').value = '';
+                        document.getElementById('apellido').value = '';
+                        document.getElementById('email').value = '';
+                        document.getElementById('contrasena').value = '';
+                        document.getElementById('fecha_nacimiento').value = '';
+                        document.getElementById('direccion').value = '';
+                        document.getElementById('rol').value = '';
+
+                        window.location.href = '/login'
+                    });
+                }
+
+                if (response.status === 400) {
+                    Swal.fire({
+                        position: "center",
+                        icon: "error",
+                        title: "El correo ya esta en uso",
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
+            })
+        })
+    });
+</script>

@@ -104,9 +104,23 @@
         margin-bottom: 1em;
     }
 
+    .btn {
+            background-color: black;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
     .buttons-container {
-        text-align: left;
+        text-align: center;
     }
+
+    .buttons-container button {
+            margin: 10px;
+        }
 </style>
 
 
@@ -117,6 +131,7 @@
         <h1>Marcaciones</h1>
         <div class="buttons-container">
             <button class="btn-logout" id="logout-button">Logout</button>
+            <button class="btn" id="edit-profile-button">Editar Mi Perfil</button>
         </div>
         <div class="cards"></div>
         <div class="pagination" id="pagination">
@@ -244,5 +259,9 @@
         localStorage.removeItem('jwtToken')
 
         window.location.href = '';
+    });
+
+    document.getElementById('edit-profile-button').addEventListener('click', function () {
+        window.location.href = 'edit-profile'
     });
 </script>
