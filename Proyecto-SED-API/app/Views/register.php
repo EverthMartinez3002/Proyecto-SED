@@ -108,6 +108,7 @@
             <select id="rol" name="rol" required>
                 <option value="user">Usuario</option>
                 <option value="admin">Admin</option>
+                <option value="superadmin">SuperAdmin</option>
             </select>
             <button class="btn" type="submit">Registrarse</button>
         </form>

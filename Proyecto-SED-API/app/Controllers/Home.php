@@ -43,4 +43,9 @@ class Home extends BaseController
     {
         return view('swal.js');
     }
+
+    public function superadminroles(): string
+    {
+        return view('superadmin-roles');
+    }
 }

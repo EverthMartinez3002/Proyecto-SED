@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Usuario;
 use App\Models\Admin;
+use App\Models\SuperAdmin;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
@@ -40,6 +41,11 @@ class UsuarioController extends BaseController
                     $administradorModel->guardarAdmin($nuevoUsuarioID);
                 }
 
+                if ($rol === 'superadmin') {
+                    $superadministradorModel = new SuperAdmin();
+                    $superadministradorModel->guardarSuperAdmin($nuevoUsuarioID);
+                }
+
                 return $this->response->setJSON(['mensaje' => 'El usuario ha sido registrado con exito'])->setStatusCode(200);
             } else {
                 $mensaje = 'No se pudo registrar el usuario';
@@ -57,10 +63,12 @@ class UsuarioController extends BaseController
         $contrasena = $data['contrasena'];
         $usuarioModel = new Usuario();
         $adminModel = new Admin();
+        $superadminModel = new SuperAdmin();
 
         $usuario = $usuarioModel->customWhere('email', $email);
         $user_id = $usuario['usuario_id'];
         $esadmin = $adminModel->customWhere('usuario_id', $user_id);
+        $essuperadmin = $superadminModel->customWhere('usuario_id', $user_id);
 
         if ($usuario) {
             if (password_verify($contrasena, $usuario['contraseña'])) {
@@ -78,6 +86,16 @@ class UsuarioController extends BaseController
                         'sub' => $usuario['usuario_id'],
                         'email' => $usuario['email'],
                         'rol' => "admin",
+                        'iat' => time(),
+                        'exp' => time() + (60 * 60),
+                    ];
+                }
+
+                if ($essuperadmin) {
+                    $payload = [
+                        'sub' => $usuario['usuario_id'],
+                        'email' => $usuario['email'],
+                        'rol' => "superadmin",
                         'iat' => time(),
                         'exp' => time() + (60 * 60),
                     ];
@@ -175,5 +193,33 @@ class UsuarioController extends BaseController
         } catch (\Exception $e) {
             return $this->response->setJSON(['mensaje' => 'No se ha modificado ningun dato'])->setStatusCode(500);
         }
+    }
+
+    public function getAllUsers()
+    {
+        $token = $this->request->getHeaderLine('Authorization');
+
+        if (empty($token)) {
+            return $this->response->setJSON(['mensaje' => 'Token no proporcionado'])->setStatusCode(401);
+        }
+
+        try {
+            $decodedToken = JWT::decode($token, new Key('your_secret_key', 'HS256'));
+        } catch (\Exception $e) {
+            return $this->response->setJSON(['mensaje' => 'Token no válido'])->setStatusCode(401);
+        }
+        $rol = $decodedToken->rol;
+
+        if ($rol != 'superadmin') {
+            return $this->response->setJSON(['mensaje' => 'No eres administrador'])->setStatusCode(401);
+        }
+
+        $perPage = 10;
+        $page = $this->request->getVar('page') ?? 1;
+
+        $usuarioModel = new Usuario();
+        $usuarios = $usuarioModel->getUsuariosConRoles($perPage, $page);
+
+        return $this->response->setJSON($usuarios)->setStatusCode(200);
     }
 }

@@ -110,9 +110,13 @@
                         document.querySelector('#email').value = '';
                         document.querySelector('#contrasena').value = '';
 
-                        if (decodedPayload.rol === "admin") {
+                        if (decodedPayload.rol === 'admin') {
                             window.location.href = '/admin';
-                        } else {
+                        }
+                        if (decodedPayload.rol === 'superadmin') {
+                            window.location.href = '/admin';
+                        }
+                        if (decodedPayload.rol === "user") {
                             window.location.href = '/user';
                         }
                     })

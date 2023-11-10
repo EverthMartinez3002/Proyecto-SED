@@ -17,11 +17,14 @@ $routes->get('/edit-profile', 'Home::userEdit');
 
 $routes->get('/admin', 'Home::adminregistros');
 
+$routes->get('/superadmin', 'Home::superadminroles');
+
 $routes->group('user', function ($routes) {
     $routes->post('create', 'UsuarioController::guardar');
     $routes->post('login', 'UsuarioController::login');
     $routes->get('id', 'UsuarioController::getuserById');
     $routes->post('edit', 'UsuarioController::editProfileUser');
+    $routes->get('all', 'UsuarioController::getAllUsers');
 });
 
 $routes->group('admin', function ($routes) {

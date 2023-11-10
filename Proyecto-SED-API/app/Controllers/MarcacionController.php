@@ -64,7 +64,7 @@ class MarcacionController extends BaseController
         $rol = $decodedToken->rol;
         $user_id = $decodedToken->sub;
 
-        if ($rol !== 'admin') {
+        if ($rol !== 'admin' && $rol !== 'superadmin') {
             return $this->response->setJSON(['mensaje' => 'No eres administrador'])->setStatusCode(401);
         }
 

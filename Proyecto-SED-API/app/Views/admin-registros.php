@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Registros</title>
+    <title>Admin registros</title>
 </head>
 
 <style>
@@ -105,22 +105,22 @@
     }
 
     .btn {
-            background-color: black;
-            color: #fff;
-            border: none;
-            border-radius: 4px;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-size: 16px;
-        }
+        background-color: black;
+        color: #fff;
+        border: none;
+        border-radius: 4px;
+        padding: 10px 20px;
+        cursor: pointer;
+        font-size: 16px;
+    }
 
     .buttons-container {
         text-align: center;
     }
 
     .buttons-container button {
-            margin: 10px;
-        }
+        margin: 10px;
+    }
 </style>
 
 
@@ -132,6 +132,7 @@
         <div class="buttons-container">
             <button class="btn-logout" id="logout-button">Logout</button>
             <button class="btn" id="edit-profile-button">Editar Mi Perfil</button>
+            <button class="btn" id="modify-roles-button">Modificar Roles</button>
         </div>
         <div class="cards"></div>
         <div class="pagination" id="pagination">
@@ -153,8 +154,16 @@
     if (jwtToken) {
         const tokenPayload = jwtToken.split('.')[1];
         const decodedPayload = JSON.parse(atob(tokenPayload));
-        if (decodedPayload.rol != 'admin') {
+        if (!(decodedPayload.rol === 'admin' || decodedPayload.rol === 'superadmin')) {
             window.location.href = '/';
+        }
+
+        const modifyRolesButton = document.getElementById('modify-roles-button');
+
+        if (decodedPayload.rol === 'superadmin') {
+            modifyRolesButton.style.display = 'inline-block';
+        } else {
+            modifyRolesButton.style.display = 'none';
         }
     }
 
@@ -170,8 +179,6 @@
         while (cardsContainer.firstChild) {
             cardsContainer.removeChild(cardsContainer.firstChild);
         }
-
-
 
         registros.forEach(registro => {
             const card = document.createElement('div');
@@ -263,5 +270,9 @@
 
     document.getElementById('edit-profile-button').addEventListener('click', function () {
         window.location.href = 'edit-profile'
+    });
+
+    document.getElementById('modify-roles-button').addEventListener('click', function () {
+        window.location.href = 'superadmin'
     });
 </script>

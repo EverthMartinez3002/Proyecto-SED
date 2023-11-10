@@ -189,7 +189,7 @@
                                 window.location.href = '/user';
                             });
                         }
-                        if (decodedPayload.rol === 'admin') {
+                        if (decodedPayload.rol === 'admin' || decodedPayload.rol === 'superadmin') {
                             Swal.fire({
                                 position: "center",
                                 icon: "success",
