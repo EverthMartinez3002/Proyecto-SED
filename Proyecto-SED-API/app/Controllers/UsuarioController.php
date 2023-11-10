@@ -4,7 +4,6 @@ namespace App\Controllers;
 
 use App\Models\Usuario;
 use App\Models\Admin;
-use App\Models\SuperAdmin;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
 
