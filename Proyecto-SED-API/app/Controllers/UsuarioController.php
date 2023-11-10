@@ -41,11 +41,6 @@ class UsuarioController extends BaseController
                     $administradorModel->guardarAdmin($nuevoUsuarioID);
                 }
 
-                if ($rol === 'superadmin') {
-                    $superadminModel = new SuperAdmin();
-                    $superadminModel->guardarSuperAdmin($nuevoUsuarioID);
-                }
-
                 return $this->response->setJSON(['mensaje' => 'El usuario ha sido registrado con exito'])->setStatusCode(200);
             } else {
                 $mensaje = 'No se pudo registrar el usuario';
