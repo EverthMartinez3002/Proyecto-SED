@@ -222,4 +222,46 @@ class UsuarioController extends BaseController
 
         return $this->response->setJSON($usuarios)->setStatusCode(200);
     }
+
+    public function modificarRol()
+    {
+        $token = $this->request->getHeaderLine('Authorization');
+
+        if (empty($token)) {
+            return $this->response->setJSON(['mensaje' => 'Token no proporcionado'])->setStatusCode(401);
+        }
+
+        try {
+            $decodedToken = JWT::decode($token, new Key('your_secret_key', 'HS256'));
+        } catch (\Exception $e) {
+            return $this->response->setJSON(['mensaje' => 'Token no válido'])->setStatusCode(401);
+        }
+        $rol = $decodedToken->rol;
+
+        if ($rol != 'superadmin') {
+            return $this->response->setJSON(['mensaje' => 'No eres administrador'])->setStatusCode(401);
+        }
+        $input = file_get_contents('php://input');
+        $data = json_decode($input, true);
+
+        $user_id = $data['id'];
+
+        $adminModel = new Admin();
+        $esadmin = $adminModel->customWhere('usuario_id', $user_id);
+
+        if ($esadmin) {
+            $eliminarAdmin = $adminModel->eliminarAdmin($user_id);
+            if ($eliminarAdmin) {
+                return $this->response->setJSON(['mensaje' => 'Rol modificado con exito'])->setStatusCode(200);
+            } else {
+                return $this->response->setJSON(['mensaje' => 'No se ha encontrado el usario'])->setStatusCode(401);
+            }
+        }
+
+        $hacerAdmin = $adminModel->guardarAdmin($user_id);
+
+        if($hacerAdmin){
+            return $this->response->setJSON(['mensaje' => 'Rol modificado con exito'])->setStatusCode(200);
+        }
+    }
 }

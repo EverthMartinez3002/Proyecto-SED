@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="<?= base_url('swal-css') ?>">
     <title>Editar roles</title>
     <style>
         body {
@@ -65,6 +66,7 @@
             cursor: pointer;
             font-size: 16px;
         }
+
         .pagination {
             margin-top: 15px;
             text-align: center;
@@ -88,6 +90,7 @@
 
 </html>
 
+<script type="text/javascript" src="<?= base_url('swal-js') ?>"></script>
 <script>
     const jwtToken = localStorage.getItem('jwtToken');
     if (jwtToken) {
@@ -139,6 +142,7 @@
 
                     const modificarRolButton = document.createElement('button');
                     modificarRolButton.textContent = 'Modificar Rol';
+                    modificarRolButton.id = 'modificarRolButton';
 
                     card.appendChild(idElement);
                     card.appendChild(nombreElement);
@@ -147,7 +151,57 @@
 
                     usuariosContainer.appendChild(card);
 
+                    modificarRolButton.addEventListener('click', () => {
+                        Swal.fire({
+                            title: "¿Quieres modificar el rol de este usuario?",
+                            showDenyButton: true,
+                            confirmButtonText: "Modificar",
+                            denyButtonText: "Cancelar",
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                const usuarioId = cardUser_id(modificarRolButton);
+                                if (usuarioId) {
+                                    modificarRol(usuarioId);
+                                }
+                            }
+                        })
+                    });
+
                 });
+
+                function cardUser_id(button) {
+                    const card = button.closest('.card');
+                    if (card) {
+                        const idElement = card.querySelector('p');
+                        if (idElement) {
+                            const idText = idElement.textContent.trim();
+                            const idParts = idText.split(': ');
+                            if (idParts.length === 2) {
+                                return idParts[1];
+                            }
+                        }
+                    }
+                    return null;
+                }
+
+
+                function modificarRol(usuarioId) {
+                    fetch('http://localhost:8080/user/rol', {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': jwtToken
+                        },
+                        body: JSON.stringify({ id: usuarioId }),
+                    }).then(response => {
+                        if (response.status === 200) {
+                            Swal.fire('Modificado', 'El rol del usuario ha sido modificado con éxito', 'success');
+                        } else {
+                            Swal.fire('Error', 'Hubo un error al modificar el rol del usuario', 'error');
+                        }
+                    }).catch(error => {
+
+                    });
+                }
 
                 backButton.disabled = currentPage === 1;
                 nextButton.disabled = currentPage === data.totalPaginas;
@@ -165,12 +219,12 @@
     fetchUsuarios(currentPage)
     backButton.addEventListener('click', () => {
         if (currentPage > 1) {
-        currentPage--;
-        fetchUsuarios(currentPage);
-    } else {
-        backButton.disabled = true;
-        console.log('Estás en la primera página');
-    }
+            currentPage--;
+            fetchUsuarios(currentPage);
+        } else {
+            backButton.disabled = true;
+            console.log('Estás en la primera página');
+        }
     });
 
     nextButton.addEventListener('click', () => {

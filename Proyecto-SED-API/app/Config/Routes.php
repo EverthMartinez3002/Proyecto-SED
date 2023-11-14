@@ -25,6 +25,7 @@ $routes->group('user', function ($routes) {
     $routes->get('id', 'UsuarioController::getuserById');
     $routes->post('edit', 'UsuarioController::editProfileUser');
     $routes->get('all', 'UsuarioController::getAllUsers');
+    $routes->post('rol', 'UsuarioController::modificarRol');
 });
 
 $routes->group('admin', function ($routes) {

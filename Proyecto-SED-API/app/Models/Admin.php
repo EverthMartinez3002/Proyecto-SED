@@ -26,4 +26,8 @@ class Admin extends Model
         $model = new static();
         return $model->where($columna, $valor)->first();
     }
+
+    public function eliminarAdmin($usuario_id){
+        return $this->where('usuario_id', $usuario_id)->delete();
+    }
 }
