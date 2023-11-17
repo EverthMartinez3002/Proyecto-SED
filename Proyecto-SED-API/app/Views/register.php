@@ -152,7 +152,8 @@
             return;
         }
 
-        fetch('http://localhost:8080/user/create', {
+var fetchURL = '<?php echo base_url('user/create') ?>';
+        fetch(fetchURL, {
             method: 'POST',
             body: JSON.stringify({ nombre, apellido, email, contrasena, fecha_nacimiento, direccion, rol })
         }).then(response => {

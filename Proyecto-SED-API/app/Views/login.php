@@ -89,8 +89,9 @@
 
         const email = document.querySelector('#email').value;
         const contrasena = document.querySelector('#contrasena').value;
+	var ApiURL = '<?php echo base_url('user/login')?>';
 
-        fetch('http://localhost:8080/user/login', {
+        fetch(ApiURL, {
             method: 'POST',
             body: JSON.stringify({ email, contrasena })
         }).then(response => {

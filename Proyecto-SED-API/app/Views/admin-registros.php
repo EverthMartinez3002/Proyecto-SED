@@ -211,8 +211,12 @@
         });
     };
 
+	var baseUrl = '<?php echo base_url('marcacion/') ?>';
+	var queryParams = `page=`
+	var fetchURL1 = baseUrl + '?' + queryParams;
+
     fetchRegistros = (page) => {
-        fetch(`http://localhost:8080/marcacion/?page=${page}`, {
+        fetch(fetchURL1 + `${page}`, {
             method: 'GET',
             headers: {
                 'Authorization': jwtToken

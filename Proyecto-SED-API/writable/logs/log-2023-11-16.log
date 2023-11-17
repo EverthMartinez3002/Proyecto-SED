@@ -1,0 +1,420 @@
+CRITICAL - 2023-11-16 15:11:24 --> Class "Locale" not found
+in SYSTEMPATH/CodeIgniter.php on line 218.
+ 1 ROOTPATH/spark(88): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-11-16 15:11:24 --> Uncaught Error: Class "Locale" not found in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/I18n/TimeTrait.php:74
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/I18n/TimeTrait.php(115): CodeIgniter\I18n\Time->__construct()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/ResponseTrait.php(468): CodeIgniter\I18n\Time::now()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/ResponseTrait.php(446): CodeIgniter\HTTP\Response->sendHeaders()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/ExceptionHandler.php(81): CodeIgniter\HTTP\Response->send()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/Exceptions.php(149): CodeIgniter\Debug\ExceptionHandler->handle()
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/spark(88): CodeIgniter\CodeIgniter->initialize()
+#1 {main}
+in SYSTEMPATH/I18n/TimeTrait.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-16 15:12:46 --> Class "Locale" not found
+in SYSTEMPATH/CodeIgniter.php on line 218.
+ 1 ROOTPATH/spark(88): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-11-16 15:12:46 --> Uncaught Error: Class "Locale" not found in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/I18n/TimeTrait.php:74
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/I18n/TimeTrait.php(115): CodeIgniter\I18n\Time->__construct()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/ResponseTrait.php(468): CodeIgniter\I18n\Time::now()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/ResponseTrait.php(446): CodeIgniter\HTTP\Response->sendHeaders()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/ExceptionHandler.php(81): CodeIgniter\HTTP\Response->send()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/Exceptions.php(149): CodeIgniter\Debug\ExceptionHandler->handle()
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/spark(88): CodeIgniter\CodeIgniter->initialize()
+#1 {main}
+in SYSTEMPATH/I18n/TimeTrait.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-16 15:14:43 --> Class "Locale" not found
+in SYSTEMPATH/CodeIgniter.php on line 218.
+ 1 ROOTPATH/spark(88): CodeIgniter\CodeIgniter->initialize()
+CRITICAL - 2023-11-16 15:14:43 --> Uncaught Error: Class "Locale" not found in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/I18n/TimeTrait.php:74
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/I18n/TimeTrait.php(115): CodeIgniter\I18n\Time->__construct()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/ResponseTrait.php(468): CodeIgniter\I18n\Time::now()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/ResponseTrait.php(446): CodeIgniter\HTTP\Response->sendHeaders()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/ExceptionHandler.php(81): CodeIgniter\HTTP\Response->send()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/Exceptions.php(149): CodeIgniter\Debug\ExceptionHandler->handle()
+#5 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#6 {main}
+  thrown
+【Previous Exception】
+Error
+Class "Locale" not found
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/spark(88): CodeIgniter\CodeIgniter->initialize()
+#1 {main}
+in SYSTEMPATH/I18n/TimeTrait.php on line 74.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-16 17:33:31 --> Config\App::$baseURL is invalid.
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 SYSTEMPATH/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+ 2 SYSTEMPATH/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+ 3 SYSTEMPATH/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+ 4 SYSTEMPATH/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+ 5 SYSTEMPATH/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+ 6 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+ 7 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+ 8 SYSTEMPATH/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+ 9 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+10 SYSTEMPATH/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+11 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+12 SYSTEMPATH/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+13 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+14 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+15 SYSTEMPATH/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+16 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+17 SYSTEMPATH/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+18 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+19 SYSTEMPATH/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+20 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+21 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-16 17:33:31 --> Uncaught CodeIgniter\Exceptions\ConfigException: Config\App::$baseURL is invalid. in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php:199
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(520): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/Exceptions.php(137): CodeIgniter\Config\BaseService::__callStatic()
+#17 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#18 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\ConfigException
+Config\App::$baseURL is invalid.
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+#17 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+#18 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+#19 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+#20 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#21 {main}
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-16 17:33:33 --> Config\App::$baseURL is invalid.
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 SYSTEMPATH/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+ 2 SYSTEMPATH/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+ 3 SYSTEMPATH/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+ 4 SYSTEMPATH/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+ 5 SYSTEMPATH/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+ 6 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+ 7 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+ 8 SYSTEMPATH/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+ 9 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+10 SYSTEMPATH/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+11 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+12 SYSTEMPATH/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+13 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+14 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+15 SYSTEMPATH/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+16 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+17 SYSTEMPATH/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+18 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+19 SYSTEMPATH/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+20 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+21 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-16 17:33:33 --> Uncaught CodeIgniter\Exceptions\ConfigException: Config\App::$baseURL is invalid. in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php:199
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(520): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/Exceptions.php(137): CodeIgniter\Config\BaseService::__callStatic()
+#17 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#18 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\ConfigException
+Config\App::$baseURL is invalid.
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+#17 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+#18 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+#19 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+#20 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#21 {main}
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-16 17:33:36 --> Config\App::$baseURL is invalid.
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 SYSTEMPATH/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+ 2 SYSTEMPATH/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+ 3 SYSTEMPATH/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+ 4 SYSTEMPATH/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+ 5 SYSTEMPATH/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+ 6 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+ 7 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+ 8 SYSTEMPATH/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+ 9 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+10 SYSTEMPATH/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+11 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+12 SYSTEMPATH/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+13 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+14 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+15 SYSTEMPATH/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+16 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+17 SYSTEMPATH/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+18 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+19 SYSTEMPATH/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+20 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+21 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-16 17:33:36 --> Uncaught CodeIgniter\Exceptions\ConfigException: Config\App::$baseURL is invalid. in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php:199
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(520): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/Exceptions.php(137): CodeIgniter\Config\BaseService::__callStatic()
+#17 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#18 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\ConfigException
+Config\App::$baseURL is invalid.
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+#17 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+#18 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+#19 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+#20 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#21 {main}
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-16 17:33:45 --> Config\App::$baseURL is invalid.
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 SYSTEMPATH/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+ 2 SYSTEMPATH/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+ 3 SYSTEMPATH/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+ 4 SYSTEMPATH/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+ 5 SYSTEMPATH/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+ 6 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+ 7 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+ 8 SYSTEMPATH/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+ 9 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+10 SYSTEMPATH/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+11 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+12 SYSTEMPATH/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+13 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+14 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+15 SYSTEMPATH/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+16 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+17 SYSTEMPATH/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+18 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+19 SYSTEMPATH/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+20 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+21 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-16 17:33:45 --> Uncaught CodeIgniter\Exceptions\ConfigException: Config\App::$baseURL is invalid. in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php:199
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(520): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/Exceptions.php(137): CodeIgniter\Config\BaseService::__callStatic()
+#17 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#18 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\ConfigException
+Config\App::$baseURL is invalid.
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+#17 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+#18 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+#19 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+#20 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#21 {main}
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-11-16 17:33:45 --> Config\App::$baseURL is invalid.
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 SYSTEMPATH/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+ 2 SYSTEMPATH/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+ 3 SYSTEMPATH/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+ 4 SYSTEMPATH/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+ 5 SYSTEMPATH/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+ 6 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+ 7 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+ 8 SYSTEMPATH/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+ 9 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+10 SYSTEMPATH/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+11 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+12 SYSTEMPATH/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+13 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+14 SYSTEMPATH/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+15 SYSTEMPATH/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+16 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+17 SYSTEMPATH/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+18 SYSTEMPATH/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+19 SYSTEMPATH/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+20 SYSTEMPATH/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+21 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-16 17:33:45 --> Uncaught CodeIgniter\Exceptions\ConfigException: Config\App::$baseURL is invalid. in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php:199
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(520): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Debug/Exceptions.php(137): CodeIgniter\Config\BaseService::__callStatic()
+#17 [internal function]: CodeIgniter\Debug\Exceptions->exceptionHandler()
+#18 {main}
+  thrown
+【Previous Exception】
+CodeIgniter\Exceptions\ConfigException
+Config\App::$baseURL is invalid.
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(145): CodeIgniter\HTTP\SiteURI->normalizeBaseURL()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURI.php(100): CodeIgniter\HTTP\SiteURI->determineBaseURL()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(224): CodeIgniter\HTTP\SiteURI->__construct()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/HTTP/SiteURIFactory.php(45): CodeIgniter\HTTP\SiteURIFactory->createURIFromRoutePath()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(799): CodeIgniter\HTTP\SiteURIFactory->createFromGlobals()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(792): CodeIgniter\Config\BaseService::getSharedInstance()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::uri()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(566): CodeIgniter\Config\BaseService::__callStatic()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(524): CodeIgniter\Config\BaseService::__callStatic()
+#12 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::request()
+#13 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(199): CodeIgniter\Config\BaseService::__callStatic()
+#14 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(559): CodeIgniter\Config\BaseService::getSharedInstance()
+#15 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::incomingrequest()
+#16 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/Services.php(539): CodeIgniter\Config\BaseService::__callStatic()
+#17 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Config/BaseService.php(258): CodeIgniter\Config\Services::createRequest()
+#18 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(655): CodeIgniter\Config\BaseService::__callStatic()
+#19 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(355): CodeIgniter\CodeIgniter->getRequestObject()
+#20 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#21 {main}
+in SYSTEMPATH/HTTP/SiteURI.php on line 199.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()

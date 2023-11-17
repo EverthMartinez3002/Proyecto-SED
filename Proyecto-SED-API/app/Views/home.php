@@ -69,8 +69,8 @@
         <h1>Bienvenido al sistema de marcación de asistencia</h1>
         <p>Regístrate o inicia sesión para comenzar a usar nuestras características.</p>
         <div class="btn-container">
-            <a class="btn" href="<?php echo base_url(). 'register'; ?>">Registro</a>
-            <a class="btn" href="<?php echo base_url(). 'login'; ?>">Iniciar Sesión</a>
+            <a class="btn" href="register">Registro</a>
+            <a class="btn" href="login">Iniciar Sesión</a>
         </div>
         <h2>Características destacadas</h2>
         <ul>

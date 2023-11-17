@@ -1,0 +1,261 @@
+ERROR - 2023-11-17 14:26:30 --> Error connecting to the database: Error: Call to undefined function CodeIgniter\Database\Postgre\pg_connect() in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/Postgre/Connection.php:72
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseConnection.php(392): CodeIgniter\Database\Postgre\Connection->connect()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/app/Controllers/UsuarioController.php(29): CodeIgniter\BaseModel->first()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(942): App\Controllers\UsuarioController->guardar()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-11-17 14:26:30 --> Unable to connect to the database.
+Main connection [Postgre]: Call to undefined function CodeIgniter\Database\Postgre\pg_connect()
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UsuarioController.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\UsuarioController->guardar()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-17 14:30:56 --> Error connecting to the database: Error: Call to undefined function CodeIgniter\Database\Postgre\pg_connect() in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/Postgre/Connection.php:72
+Stack trace:
+#0 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseConnection.php(392): CodeIgniter\Database\Postgre\Connection->connect()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/app/Controllers/UsuarioController.php(29): CodeIgniter\BaseModel->first()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(942): App\Controllers\UsuarioController->guardar()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-11-17 14:30:56 --> Unable to connect to the database.
+Main connection [Postgre]: Call to undefined function CodeIgniter\Database\Postgre\pg_connect()
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UsuarioController.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\UsuarioController->guardar()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-17 14:36:27 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;10.100.123.126&quot; and accepting
+	TCP/IP connections on port 5433? in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/Postgre/Connection.php:72
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/Postgre/Connection.php(72): pg_connect()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseConnection.php(392): CodeIgniter\Database\Postgre\Connection->connect()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/app/Controllers/UsuarioController.php(29): CodeIgniter\BaseModel->first()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(942): App\Controllers\UsuarioController->guardar()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-11-17 14:36:27 --> Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;10.100.123.126&quot; and accepting
+	TCP/IP connections on port 5433?
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UsuarioController.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\UsuarioController->guardar()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-11-17 14:41:43 --> Error connecting to the database: ErrorException: pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;10.100.123.126&quot; and accepting
+	TCP/IP connections on port 5433? in /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/Postgre/Connection.php:72
+Stack trace:
+#0 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler()
+#1 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/Postgre/Connection.php(72): pg_connect()
+#2 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseConnection.php(392): CodeIgniter\Database\Postgre\Connection->connect()
+#3 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+#4 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query()
+#5 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+#6 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/BaseModel.php(662): CodeIgniter\Model->doFirst()
+#7 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/app/Controllers/UsuarioController.php(29): CodeIgniter\BaseModel->first()
+#8 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(942): App\Controllers\UsuarioController->guardar()
+#9 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+#10 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/system/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+#11 /home/everth/proyecto/Proyecto-SED/Proyecto-SED-API/public/index.php(79): CodeIgniter\CodeIgniter->run()
+#12 {main}
+CRITICAL - 2023-11-17 14:41:43 --> Unable to connect to the database.
+Main connection [Postgre]: pg_connect(): Unable to connect to PostgreSQL server: could not connect to server: Connection refused
+	Is the server running on host &quot;10.100.123.126&quot; and accepting
+	TCP/IP connections on port 5433?
+in SYSTEMPATH/Database/BaseConnection.php on line 428.
+ 1 SYSTEMPATH/Database/BaseConnection.php(575): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1615): CodeIgniter\Database\BaseConnection->query()
+ 3 SYSTEMPATH/Model.php(264): CodeIgniter\Database\BaseBuilder->get()
+ 4 SYSTEMPATH/BaseModel.php(662): CodeIgniter\Model->doFirst()
+ 5 APPPATH/Controllers/UsuarioController.php(29): CodeIgniter\BaseModel->first()
+ 6 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\UsuarioController->guardar()
+ 7 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:01:12 --> syntax error, unexpected token "echo"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(14): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:01:45 --> syntax error, unexpected token "echo"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(14): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:01:46 --> syntax error, unexpected token "echo"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(14): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:01:54 --> syntax error, unexpected token "echo"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(14): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:01:55 --> syntax error, unexpected token "echo"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(14): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:02:48 --> Undefined constant "user"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(228): include()
+ 2 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 3 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 4 APPPATH/Controllers/Home.php(14): view()
+ 5 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 6 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 7 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 8 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:03:42 --> syntax error, unexpected token "echo"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(14): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:03:47 --> syntax error, unexpected token "echo"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(14): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:03:48 --> syntax error, unexpected token "echo"
+in APPPATH/Views/register.php on line 155.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(14): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->register()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:16:26 --> syntax error, unexpected single-quoted string " ?>;", expecting "," or ";"
+in APPPATH/Views/login.php on line 95.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(19): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->login()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:19:11 --> syntax error, unexpected single-quoted string " ?>;", expecting "," or ";"
+in APPPATH/Views/login.php on line 95.
+ 1 SYSTEMPATH/View/View.php(231): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 2 SYSTEMPATH/Common.php(1190): CodeIgniter\View\View->render()
+ 3 APPPATH/Controllers/Home.php(19): view()
+ 4 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\Home->login()
+ 5 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:45:52 --> Unsupported operand types: string - int
+in APPPATH/Models/Marcacion.php on line 35.
+ 1 APPPATH/Controllers/MarcacionController.php(79): App\Models\Marcacion::getAllRegistros()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\MarcacionController->getAllRegistros()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:46:10 --> Unsupported operand types: string - int
+in APPPATH/Models/Marcacion.php on line 35.
+ 1 APPPATH/Controllers/MarcacionController.php(79): App\Models\Marcacion::getAllRegistros()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\MarcacionController->getAllRegistros()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:46:50 --> Unsupported operand types: string - int
+in APPPATH/Models/Marcacion.php on line 35.
+ 1 APPPATH/Controllers/MarcacionController.php(79): App\Models\Marcacion::getAllRegistros()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\MarcacionController->getAllRegistros()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:47:11 --> Unsupported operand types: string - int
+in APPPATH/Models/Marcacion.php on line 35.
+ 1 APPPATH/Controllers/MarcacionController.php(79): App\Models\Marcacion::getAllRegistros()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\MarcacionController->getAllRegistros()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:47:19 --> Unsupported operand types: string - int
+in APPPATH/Models/Marcacion.php on line 35.
+ 1 APPPATH/Controllers/MarcacionController.php(79): App\Models\Marcacion::getAllRegistros()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\MarcacionController->getAllRegistros()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:47:24 --> Unsupported operand types: string - int
+in APPPATH/Models/Marcacion.php on line 35.
+ 1 APPPATH/Controllers/MarcacionController.php(79): App\Models\Marcacion::getAllRegistros()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\MarcacionController->getAllRegistros()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-11-17 15:48:04 --> Unsupported operand types: string - int
+in APPPATH/Models/Marcacion.php on line 35.
+ 1 APPPATH/Controllers/MarcacionController.php(79): App\Models\Marcacion::getAllRegistros()
+ 2 SYSTEMPATH/CodeIgniter.php(942): App\Controllers\MarcacionController->getAllRegistros()
+ 3 SYSTEMPATH/CodeIgniter.php(502): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(361): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(79): CodeIgniter\CodeIgniter->run()

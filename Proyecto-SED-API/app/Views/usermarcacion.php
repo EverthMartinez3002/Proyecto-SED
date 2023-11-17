@@ -121,8 +121,9 @@
 
         const nombre = document.querySelector('#nombre').value;
         const email = document.querySelector('#email').value;
+	var fetchURL = '<?php echo base_url('marcacion/create') ?>';
 
-        fetch('http://localhost:8080/marcacion/create', {
+        fetch(fetchURL, {
             method: 'POST',
             headers: {
                 'Authorization': jwtToken

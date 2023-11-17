@@ -108,11 +108,14 @@
     let currentPage = 1;
     let totalPaginas = 1;
     let page = 1;
+    var baseUrl = '<?php echo base_url('user/all') ?>';
+    var queryParams = 'page=';
+    var fetchUrl1 = baseUrl + '?' + queryParams;
 
     function fetchUsuarios(page) {
         usuariosContainer.innerHTML = '';
 
-        fetch(`http://localhost:8080/user/all?page=${page}`, {
+        fetch(fetchUrl1 + `${page}`, {
             method: 'GET',
             headers: {
                 'Authorization': jwtToken
@@ -184,9 +187,10 @@
                     return null;
                 }
 
+		var fetchUrl2 = '<?php echo base_url('user/rol') ?>';
 
                 function modificarRol(usuarioId) {
-                    fetch('http://localhost:8080/user/rol', {
+                    fetch(fetchUrl2, {
                         method: 'POST',
                         headers: {
                             'Authorization': jwtToken

@@ -139,8 +139,9 @@
         });
 
         const form = document.querySelector('form');
+	var fetchURL1 = '<?php echo base_url('user/id') ?>';
 
-        fetch('http://localhost:8080/user/id', {
+        fetch(fetchURL1, {
             method: 'GET',
             headers: {
                 'Authorization': jwtToken
@@ -165,8 +166,9 @@
             const apellido = document.querySelector('#apellido').value;
             const fecha_nacimiento = document.querySelector('#fecha_nacimiento').value;
             const direccion = document.querySelector('#direccion').value;
+	    var fetchURL2 = '<?php echo base_url('user/edit') ?>';
 
-            fetch('http://localhost:8080/user/edit', {
+            fetch(fetchURL2, {
                 method: 'POST',
                 headers: {
                     'Authorization': jwtToken
